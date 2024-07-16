@@ -39,6 +39,7 @@ static const Rule rules[] = {
 	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
 	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+	{ "kitty",    NULL,     NULL,	       0,         0,	      1,           0,        -1 }, 
 };
 
 /* layout(s) */
@@ -84,6 +85,7 @@ static const char *termcmd[]  = { "kitty", NULL };
 static const char *roficmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
 static const char *powermenucmd[] = { "rofi", "-show", "powermenu", "-modi", "powermenu:~/.local/bin/rofi-power-menu", NULL };
 static const char *lock[] = { "slock", NULL};
+static const char *blueman[] = {"blueman-manager", NULL};
 
 #include "movestack.c"
 static const Key keys[] = {
@@ -92,6 +94,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,			XK_p,	   spawn, 	   {.v = powermenucmd } },
 	{ MODKEY|ShiftMask,		XK_l,	   spawn, 	   {.v = lock } },
+	{ MODKEY|ShiftMask,		XK_b,	   spawn,  	   {.v = blueman} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_Left,   focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_Right,  focusstack,     {.i = -1 } },
